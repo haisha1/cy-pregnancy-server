@@ -1,0 +1,138 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------< com.chunyu:cy-pregnancy-server >-------------------
+[INFO] Building cy-pregnancy-server 0.1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ cy-pregnancy-server ---
+[INFO] Deleting D:\code\cy-pregnancy\cy-pregnancy-server\target
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ cy-pregnancy-server ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 3 resources
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ cy-pregnancy-server ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 38 source files to D:\code\cy-pregnancy\cy-pregnancy-server\target\classes
+[INFO] /D:/code/cy-pregnancy/cy-pregnancy-server/src/main/java/com/chunyu/pregnancy/config/SecurityConfig.java: D:\code\cy-pregnancy\cy-pregnancy-server\src\main\java\com\chunyu\pregnancy\config\SecurityConfig.javaʹ����δ�����򲻰�ȫ�Ĳ�����
+[INFO] /D:/code/cy-pregnancy/cy-pregnancy-server/src/main/java/com/chunyu/pregnancy/config/SecurityConfig.java: �й���ϸ��Ϣ, ��ʹ�� -Xlint:unchecked ���±��롣
+[INFO] 
+[INFO] --- resources:3.2.0:testResources (default-testResources) @ cy-pregnancy-server ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory D:\code\cy-pregnancy\cy-pregnancy-server\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ cy-pregnancy-server ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to D:\code\cy-pregnancy\cy-pregnancy-server\target\test-classes
+[INFO] /D:/code/cy-pregnancy/cy-pregnancy-server/src/test/java/com/chunyu/pregnancy/account/AuthMysqlIntegrationTest.java: D:\code\cy-pregnancy\cy-pregnancy-server\src\test\java\com\chunyu\pregnancy\account\AuthMysqlIntegrationTest.javaʹ����δ�����򲻰�ȫ�Ĳ�����
+[INFO] /D:/code/cy-pregnancy/cy-pregnancy-server/src/test/java/com/chunyu/pregnancy/account/AuthMysqlIntegrationTest.java: �й���ϸ��Ϣ, ��ʹ�� -Xlint:unchecked ���±��롣
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ cy-pregnancy-server ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.chunyu.pregnancy.account.AuthMysqlIntegrationTest
+[WARNING] Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.003 s - in com.chunyu.pregnancy.account.AuthMysqlIntegrationTest
+[INFO] Running com.chunyu.pregnancy.account.PublishedContentTest
+10:45:46.560 [main] DEBUG org.springframework.test.util.ReflectionTestUtils - Getting field 'http' from target object [com.chunyu.pregnancy.service.PublishedContentService@50305a] or target class [class com.chunyu.pregnancy.service.PublishedContentService]
+10:45:46.582 [main] DEBUG org.springframework.web.client.RestTemplate - HTTP GET http://content.test/internal/content/knowledge/11111111-1111-4111-8111-111111111111
+10:45:46.612 [Finalizer] DEBUG org.apache.http.impl.conn.PoolingHttpClientConnectionManager - Connection manager is shutting down
+10:45:46.612 [Finalizer] DEBUG org.apache.http.impl.conn.PoolingHttpClientConnectionManager - Connection manager shut down
+10:45:46.618 [main] DEBUG org.springframework.web.client.RestTemplate - Accept=[application/json, application/*+json]
+10:45:46.623 [main] DEBUG org.springframework.web.client.RestTemplate - Response 200 OK
+10:45:46.626 [main] DEBUG org.springframework.web.client.RestTemplate - Reading to [java.util.Map<?, ?>]
+10:45:46.685 [main] DEBUG org.springframework.web.client.RestTemplate - HTTP GET http://content.test/internal/content/knowledge/11111111-1111-4111-8111-111111111111
+10:45:46.686 [main] DEBUG org.springframework.web.client.RestTemplate - Accept=[application/json, application/*+json]
+10:45:46.686 [main] DEBUG org.springframework.web.client.RestTemplate - Response 404 NOT_FOUND
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.741 s - in com.chunyu.pregnancy.account.PublishedContentTest
+[INFO] Running com.chunyu.pregnancy.account.TokenServiceTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.085 s - in com.chunyu.pregnancy.account.TokenServiceTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[WARNING] Tests run: 7, Failures: 0, Errors: 0, Skipped: 1
+[INFO] 
+[INFO] 
+[INFO] >>> spring-boot:2.7.18:run (default-cli) > test-compile @ cy-pregnancy-server >>>
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ cy-pregnancy-server ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 3 resources
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ cy-pregnancy-server ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 38 source files to D:\code\cy-pregnancy\cy-pregnancy-server\target\classes
+[INFO] /D:/code/cy-pregnancy/cy-pregnancy-server/src/main/java/com/chunyu/pregnancy/config/SecurityConfig.java: D:\code\cy-pregnancy\cy-pregnancy-server\src\main\java\com\chunyu\pregnancy\config\SecurityConfig.javaʹ����δ�����򲻰�ȫ�Ĳ�����
+[INFO] /D:/code/cy-pregnancy/cy-pregnancy-server/src/main/java/com/chunyu/pregnancy/config/SecurityConfig.java: �й���ϸ��Ϣ, ��ʹ�� -Xlint:unchecked ���±��롣
+[INFO] 
+[INFO] --- resources:3.2.0:testResources (default-testResources) @ cy-pregnancy-server ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory D:\code\cy-pregnancy\cy-pregnancy-server\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ cy-pregnancy-server ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to D:\code\cy-pregnancy\cy-pregnancy-server\target\test-classes
+[INFO] /D:/code/cy-pregnancy/cy-pregnancy-server/src/test/java/com/chunyu/pregnancy/account/AuthMysqlIntegrationTest.java: D:\code\cy-pregnancy\cy-pregnancy-server\src\test\java\com\chunyu\pregnancy\account\AuthMysqlIntegrationTest.javaʹ����δ�����򲻰�ȫ�Ĳ�����
+[INFO] /D:/code/cy-pregnancy/cy-pregnancy-server/src/test/java/com/chunyu/pregnancy/account/AuthMysqlIntegrationTest.java: �й���ϸ��Ϣ, ��ʹ�� -Xlint:unchecked ���±��롣
+[INFO] 
+[INFO] <<< spring-boot:2.7.18:run (default-cli) < test-compile @ cy-pregnancy-server <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:2.7.18:run (default-cli) @ cy-pregnancy-server ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::               (v2.7.18)
+
+2026-10-20 10:45:52.774  INFO 28400 --- [           main] c.c.p.PregnancyServerApplication         : Starting PregnancyServerApplication using Java 1.8.0_441 on ���� with PID 28400 (D:\code\cy-pregnancy\cy-pregnancy-server\target\classes started by hechu in D:\code\cy-pregnancy\cy-pregnancy-server)
+2026-10-20 10:45:52.776  INFO 28400 --- [           main] c.c.p.PregnancyServerApplication         : No active profile set, falling back to 1 default profile: "local"
+2026-10-20 10:45:53.424  INFO 28400 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-10-20 10:45:53.426  INFO 28400 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-10-20 10:45:53.447  INFO 28400 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.
+2026-10-20 10:45:53.957  INFO 28400 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 18731 (http)
+2026-10-20 10:45:53.963  INFO 28400 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-10-20 10:45:53.963  INFO 28400 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.83]
+2026-10-20 10:45:54.091  INFO 28400 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-10-20 10:45:54.091  INFO 28400 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1289 ms
+2026-10-20 10:45:54.926  INFO 28400 --- [           main] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.5.13 by Redgate
+2026-10-20 10:45:54.926  INFO 28400 --- [           main] o.f.c.internal.license.VersionPrinter    : See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+2026-10-20 10:45:54.926  INFO 28400 --- [           main] o.f.c.internal.license.VersionPrinter    : 
+2026-10-20 10:45:54.936  INFO 28400 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-20 10:45:55.275  INFO 28400 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-20 10:45:55.297  INFO 28400 --- [           main] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:mysql://localhost:3306/cy_pregnancy (MySQL 8.0)
+2026-10-20 10:45:55.332  INFO 28400 --- [           main] o.f.core.internal.command.DbValidate     : Successfully validated 3 migrations (execution time 00:00.020s)
+2026-10-20 10:45:55.341  INFO 28400 --- [           main] o.f.core.internal.command.DbMigrate      : Current version of schema `cy_pregnancy`: 3
+2026-10-20 10:45:55.342  INFO 28400 --- [           main] o.f.core.internal.command.DbMigrate      : Schema `cy_pregnancy` is up to date. No migration necessary.
+2026-10-20 10:45:55.793  INFO 28400 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@446a5aa5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@628bcf2c, org.springframework.security.web.context.SecurityContextPersistenceFilter@2e02cc37, org.springframework.security.web.header.HeaderWriterFilter@64d53f0d, org.springframework.security.oauth2.server.resource.web.BearerTokenAuthenticationFilter@2c6aa46c, com.chunyu.pregnancy.security.SessionValidityFilter@4b76251c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@652a1a17, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@20b67366, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@20c283b4, org.springframework.security.web.session.SessionManagementFilter@4b916cc2, org.springframework.security.web.access.ExceptionTranslationFilter@631678e6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@61b0af9f]
+2026-10-20 10:45:56.293  INFO 28400 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2026-10-20 10:45:56.322  INFO 28400 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 18731 (http) with context path ''
+2026-10-20 10:45:56.333  INFO 28400 --- [           main] c.c.p.PregnancyServerApplication         : Started PregnancyServerApplication in 3.814 seconds (JVM running for 4.118)
+2026-10-20 10:46:22.519  INFO 28400 --- [io-18731-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-20 10:46:22.519  INFO 28400 --- [io-18731-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-10-20 10:46:22.520  INFO 28400 --- [io-18731-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:42 min
+[INFO] Finished at: 2026-10-20T10:47:21+08:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:2.7.18:run (default-cli) on project cy-pregnancy-server: Application finished with exit code: -1 -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

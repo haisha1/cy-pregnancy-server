@@ -1,0 +1,95 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------< com.chunyu:cy-pregnancy-server >-------------------
+[INFO] Building cy-pregnancy-server 0.1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ cy-pregnancy-server ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 3 resources
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ cy-pregnancy-server ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- resources:3.2.0:testResources (default-testResources) @ cy-pregnancy-server ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory D:\code\cy-pregnancy\cy-pregnancy-server\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ cy-pregnancy-server ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ cy-pregnancy-server ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.chunyu.pregnancy.account.AuthMysqlIntegrationTest
+21:38:58.200 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+21:38:58.210 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+21:38:58.246 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.chunyu.pregnancy.account.AuthMysqlIntegrationTest] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+21:38:58.256 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.chunyu.pregnancy.account.AuthMysqlIntegrationTest], using SpringBootContextLoader
+21:38:58.260 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.chunyu.pregnancy.account.AuthMysqlIntegrationTest]: class path resource [com/chunyu/pregnancy/account/AuthMysqlIntegrationTest-context.xml] does not exist
+21:38:58.261 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.chunyu.pregnancy.account.AuthMysqlIntegrationTest]: class path resource [com/chunyu/pregnancy/account/AuthMysqlIntegrationTestContext.groovy] does not exist
+21:38:58.261 [main] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.chunyu.pregnancy.account.AuthMysqlIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+21:38:58.261 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.chunyu.pregnancy.account.AuthMysqlIntegrationTest]: AuthMysqlIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+21:38:58.395 [main] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [D:\code\cy-pregnancy\cy-pregnancy-server\target\classes\com\chunyu\pregnancy\PregnancyServerApplication.class]
+21:38:58.396 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.chunyu.pregnancy.PregnancyServerApplication for test class com.chunyu.pregnancy.account.AuthMysqlIntegrationTest
+21:38:58.484 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [com.chunyu.pregnancy.account.AuthMysqlIntegrationTest]: using defaults.
+21:38:58.485 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener]
+21:38:58.511 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@16746061, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@57fd91c9, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@6cfcd46d, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@52045dbe, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@674658f7, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5c8eee0f, org.springframework.test.context.transaction.TransactionalTestExecutionListener@565b064f, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@26425897, org.springframework.test.context.event.EventPublishingTestExecutionListener@73163d48, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@58c34bb3, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@56a4479a, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@62163b39, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@20a8a64e, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@62f4ff3b, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@1698fc68, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@4504d271, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@207b8649]
+21:38:58.517 [main] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@67ab1c47 testClass = AuthMysqlIntegrationTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@b78a709 testClass = AuthMysqlIntegrationTest, locations = '{}', classes = '{class com.chunyu.pregnancy.PregnancyServerApplication}', contextInitializerClasses = '[]', activeProfiles = '{test}', propertySourceLocations = '{}', propertySourceProperties = '{spring.datasource.url=jdbc:mysql://localhost:3306/cy_pregnancy_auth_test?serverTimezone=UTC, spring.datasource.username=root, spring.datasource.password=root, app.jwt.secret=integration-test-only-secret-with-at-least-32-bytes, app.wechat.app-id=test-app-id, app.wechat.secret=test-secret, ADMIN_READ_KEY=integration-internal-read-only-secret-32-bytes, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[[ImportsContextCustomizer@30bcf3c1 key = [org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.client.servlet.OAuth2ClientAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.reactive.WebTestClientAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@6c61a903, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@3fc79729, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@b029fb40, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@55cf0d14, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@6cdba6dc, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@4b3fa0b3, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@f99f5e0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@4b5d6a01], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true]], class annotated with @DirtiesContext [false] with mode [null].
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::               (v2.7.18)
+
+2026-10-19 21:38:58.960  INFO 15884 --- [           main] c.c.p.account.AuthMysqlIntegrationTest   : Starting AuthMysqlIntegrationTest using Java 1.8.0_441 on ���� with PID 15884 (started by hechu in D:\code\cy-pregnancy\cy-pregnancy-server)
+2026-10-19 21:38:58.961  INFO 15884 --- [           main] c.c.p.account.AuthMysqlIntegrationTest   : The following 1 profile is active: "test"
+2026-10-19 21:39:00.014  INFO 15884 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-10-19 21:39:00.016  INFO 15884 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-10-19 21:39:00.052  INFO 15884 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 0 Redis repository interfaces.
+2026-10-19 21:39:03.274  INFO 15884 --- [           main] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.5.13 by Redgate
+2026-10-19 21:39:03.274  INFO 15884 --- [           main] o.f.c.internal.license.VersionPrinter    : See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+2026-10-19 21:39:03.274  INFO 15884 --- [           main] o.f.c.internal.license.VersionPrinter    : 
+2026-10-19 21:39:03.299  INFO 15884 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-19 21:39:04.344  INFO 15884 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-19 21:39:04.392  INFO 15884 --- [           main] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:mysql://localhost:3306/cy_pregnancy_auth_test (MySQL 8.0)
+2026-10-19 21:39:04.457  INFO 15884 --- [           main] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.033s)
+2026-10-19 21:39:04.474  INFO 15884 --- [           main] o.f.core.internal.command.DbMigrate      : Current version of schema `cy_pregnancy_auth_test`: 2
+2026-10-19 21:39:04.474  INFO 15884 --- [           main] o.f.core.internal.command.DbMigrate      : Schema `cy_pregnancy_auth_test` is up to date. No migration necessary.
+2026-10-19 21:39:05.295  INFO 15884 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@47b494ce, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@50dd1e3a, org.springframework.security.web.context.SecurityContextPersistenceFilter@7fdf7359, org.springframework.security.web.header.HeaderWriterFilter@2f8ab988, org.springframework.security.oauth2.server.resource.web.BearerTokenAuthenticationFilter@585672dd, com.chunyu.pregnancy.security.SessionValidityFilter@3b764e66, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@52ba21e4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@558ed473, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@38834000, org.springframework.security.web.session.SessionManagementFilter@e47637c, org.springframework.security.web.access.ExceptionTranslationFilter@60251ddb, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3c04ddda]
+2026-10-19 21:39:07.032  INFO 15884 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-19 21:39:07.032  INFO 15884 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-19 21:39:07.046  INFO 15884 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2026-10-19 21:39:07.095  INFO 15884 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 63 ms
+2026-10-19 21:39:07.169  INFO 15884 --- [           main] c.c.p.account.AuthMysqlIntegrationTest   : Started AuthMysqlIntegrationTest in 8.617 seconds (JVM running for 9.73)
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.014 s - in com.chunyu.pregnancy.account.AuthMysqlIntegrationTest
+[INFO] Running com.chunyu.pregnancy.account.TokenServiceTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in com.chunyu.pregnancy.account.TokenServiceTest
+2026-10-19 21:39:09.328  INFO 15884 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-10-19 21:39:09.336  INFO 15884 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.2.2:jar (default-jar) @ cy-pregnancy-server ---
+[INFO] Building jar: D:\code\cy-pregnancy\cy-pregnancy-server\target\cy-pregnancy-server-0.1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot:2.7.18:repackage (repackage) @ cy-pregnancy-server ---
+[INFO] Replacing main artifact with repackaged archive
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  16.815 s
+[INFO] Finished at: 2026-10-19T21:39:11+08:00
+[INFO] ------------------------------------------------------------------------
