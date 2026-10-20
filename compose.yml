@@ -1,0 +1,63 @@
+# 腾讯云部署参考。应用仅绑定宿主机回环地址，由宿主机Nginx提供HTTPS入口。
+services:
+  api:
+    build: .
+    restart: unless-stopped
+    ports:
+      - '127.0.0.1:18731:18731'
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      DB_URL: 'jdbc:mysql://mysql:3306/cy_pregnancy?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC'
+      DB_USERNAME: pregnancy
+      DB_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD in .env}
+      REDIS_HOST: redis
+      REDIS_PASSWORD: ${REDIS_PASSWORD:?Set REDIS_PASSWORD in .env}
+      JWT_SECRET: ${JWT_SECRET:?Set JWT_SECRET in .env}
+      WX_APP_ID: ${WX_APP_ID:-}
+      WX_APP_SECRET: ${WX_APP_SECRET:-}
+      ADMIN_READ_KEY: ${ADMIN_READ_KEY:?Set shared ADMIN_READ_KEY}
+      CONTENT_READ_KEY: ${CONTENT_READ_KEY:?Set shared CONTENT_READ_KEY}
+      CONTENT_READ_URL: http://admin-api:18732
+    networks:
+      default:
+      service-internal:
+        aliases: [user-api]
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+  mysql:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: cy_pregnancy
+      MYSQL_USER: pregnancy
+      MYSQL_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD in .env}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Set MYSQL_ROOT_PASSWORD in .env}
+      TZ: UTC
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ['CMD-SHELL', 'MYSQL_PWD="$${MYSQL_PASSWORD}" mysql -u pregnancy -D cy_pregnancy -e "SELECT 1" >/dev/null 2>&1']
+      interval: 10s
+      timeout: 5s
+      retries: 15
+  redis:
+    image: redis:7.4
+    restart: unless-stopped
+    environment:
+      REDIS_PASSWORD: ${REDIS_PASSWORD:?Set REDIS_PASSWORD in .env}
+    # 不发布Redis/MySQL公网端口；Redis只承担短时限流，持久会话仍在MySQL。
+    command: ['sh', '-c', 'exec redis-server --requirepass "$$REDIS_PASSWORD"']
+    healthcheck:
+      test: ['CMD-SHELL', 'REDISCLI_AUTH="$$REDIS_PASSWORD" redis-cli ping | grep -q PONG']
+      interval: 10s
+      timeout: 3s
+      retries: 10
+volumes:
+  mysql-data:
+networks:
+  service-internal:
+    external: true
+    name: ${SERVICE_NETWORK:-cy-pregnancy-internal}
