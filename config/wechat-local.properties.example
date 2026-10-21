@@ -1,0 +1,4 @@
+# Copy to .local/wechat.properties for local development only.
+# Never put the real AppSecret in this example, frontend code or Git.
+WX_APP_ID=wx1020f763d95bf61c
+WX_APP_SECRET=

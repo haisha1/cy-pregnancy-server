@@ -5,6 +5,9 @@ spring:
     import:
       - optional:file:./.local/application-secrets.properties
       - optional:file:./cy-pregnancy-server/.local/application-secrets.properties
+      # 微信凭据单独保存在忽略目录，不被prepare-local.ps1重新生成的文件覆盖。
+      - optional:file:./.local/wechat.properties
+      - optional:file:./cy-pregnancy-server/.local/wechat.properties
   datasource:
     password: ${DB_PASSWORD:root}
 springdoc:

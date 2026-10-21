@@ -2,6 +2,8 @@
 /.idea/
 *.iml
 /.env
+/.env.*
+!/.env.example
 # 本机配置、密钥和运行日志仅保留在本地，不提交到 Git。
 /.local/
 *.log

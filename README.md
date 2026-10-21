@@ -1,5 +1,11 @@
 # 产科工具 · 小程序用户端后端
 
+生产部署见 [Jenkins + Docker](../docs/DEPLOYMENT.md)。Jenkins 构建 JAR，Dockerfile 生成运行镜像，Compose 仅更新用户服务，生产配置通过 Jenkins Secret file 注入。
+
+管理 Web 由宝塔代理到 127.0.0.1:18080；用户 API 绑定 127.0.0.1:18731。小程序使用独立 HTTPS API 域名，服务间使用共享 Docker 网络。
+
+本地微信凭据：复制[不含密钥的模板](config/wechat-local.properties.example)到`.local/wechat.properties`，填写WX_APP_ID、WX_APP_SECRET并重启本地Java服务。local配置从本项目目录或工作区根目录自动读取该文件，`prepare-local.ps1`不会覆盖它。文件被Git和Docker忽略，不打进JAR或部署包；服务器 prod 通过 Jenkins Secret file 注入环境变量，两者分别配置。不要把AppSecret填到小程序manifest、VITE变量或管理Web。
+
 2026-10-19增补：已与uni-app接通游客/显式微信登录、串行续期、退出及可选头像昵称资料接口，V3新增昵称、私有头像和资料版本。健康数据仍不上传。配置、接口、19项后端测试及真实微信待验项见[小程序联调记录](../app/cy-pregnancy/docs/微信登录与服务端联调.md)。
 
 当前阶段：**基础工程与账号鉴权模块**。Java 8编译运行，目录独立于前端和未来管理端。代码中的中文注释重点解释业务目的、事务和安全边界。
@@ -58,9 +64,9 @@ IDEA运行：导入本目录pom.xml，Project SDK、Module SDK、Maven Importer/
 
 ## 4. 微信真实登录
 
-当前没有AppID/AppSecret，工程可启动，登录返回503 WECHAT_NOT_CONFIGURED。没有提供开发后门或可伪造openid的登录接口。
+本地已配置小程序 AppID，AppSecret 保存在 Git 忽略的 `.local/wechat.properties`。重启 local 服务后读取；真实微信 code 登录仍需联调，配置存在不代表授权已验证。生产配置单独由 Jenkins Secret file 注入。
 
-在自己的运行环境中设置WX_APP_ID与WX_APP_SECRET后重启，不把Secret发到聊天或提交代码。小程序用wx.login取得实时code，调用：
+已准备忽略提交的 `.local/user-prod.env`，用于更新服务器生产配置及 Jenkins 的 `cy-user-prod-env` 凭据。文件含敏感配置，不提交 Git、不打入镜像、不打印到日志。更新 Secret file 后重新运行发布任务，容器才会读取新值。小程序用wx.login取得实时code，调用：
 
 ```http
 POST /api/v1/auth/wx-login
@@ -106,7 +112,7 @@ Remove-Item Env:RUN_MYSQL_IT
 
 集成测试使用`root/root`连接专用测试库，会删除该库的账号测试表内容；运行前代码校验SELECT DATABASE()必须是cy_pregnancy_auth_test。绝不把真实数据放进此库。微信网络边界在测试中替换，因此测试通过不代表真实AppID/code联调完成。Redis仅写带测试前缀/随机地址的计数键并自动过期，不执行FLUSHDB。
 
-jar产物：`target/cy-pregnancy-server-0.1.0-SNAPSHOT.jar`。Dockerfile构建时跳过测试，部署前必须先本地执行测试。部署步骤见[Docker部署说明](docs/02-Docker部署说明.md)。
+jar产物：`target/cy-pregnancy-server-0.1.0-SNAPSHOT.jar`。Jenkins 执行 mvn clean verify 后，Dockerfile 仅打包 JAR。部署步骤见[Jenkins 部署说明](../docs/DEPLOYMENT.md)。
 
 ## 7. 推荐阅读顺序
 
