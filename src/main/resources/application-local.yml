@@ -1,3 +1,4 @@
+# local：默认本机 MySQL 3306 / Redis 6379；可在 .local/connections-local.properties 单独覆盖连接参数。
 # 仅 local 环境使用用户提供的本机数据库凭据；云端使用 prod 环境变量。
 spring:
   config:
@@ -8,6 +9,8 @@ spring:
       # 微信凭据单独保存在忽略目录，不被prepare-local.ps1重新生成的文件覆盖。
       - optional:file:./.local/wechat.properties
       - optional:file:./cy-pregnancy-server/.local/wechat.properties
+      - optional:file:./.local/connections-local.properties
+      - optional:file:./cy-pregnancy-server/.local/connections-local.properties
   datasource:
     password: ${DB_PASSWORD:root}
 springdoc:
