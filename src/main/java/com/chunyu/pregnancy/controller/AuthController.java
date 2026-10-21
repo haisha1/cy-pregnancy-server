@@ -16,18 +16,25 @@ import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 
 /** 控制器只做参数接收和响应包装；身份校验在过滤器，业务事务在AuthService。 */
+// HTTP 控制器：接收请求，返回值由框架序列化为响应，通常是 JSON。
 @RestController
+// 声明接口路径；类上的公共前缀会与方法上的路径拼接。
 @RequestMapping("/api/v1")
+// OpenAPI 文档分组说明，仅影响接口文档展示，不负责真实鉴权。
 @Tag(name = "小程序账号", description = "微信登录不代表同意云同步")
 public class AuthController {
     private final AuthService auth;
     private final LoginRateLimiter rateLimiter;
+    // 单一构造器由 Spring 自动注入依赖；final 字段表明这些依赖在构造后不再替换。
     public AuthController(AuthService auth, LoginRateLimiter rateLimiter) {
         this.auth = auth;
         this.rateLimiter = rateLimiter;
     }
 
+    // 将下面的方法映射为 POST 接口；请求体解析和业务处理由参数及方法体决定。
+    // 参数中的 RequestBody 将 JSON 转成登录 DTO，Valid 再执行字段约束；通过后才进入方法体。
     @PostMapping("/auth/wx-login")
+    // OpenAPI 接口说明，仅描述用途；参数校验和鉴权仍由其他注解及代码执行。
     @Operation(summary = "使用微信一次性code登录，不接收客户端openid")
     public ApiResponse<TokenResponse> login(@Valid @RequestBody LoginRequest body, HttpServletRequest request) {
         rateLimiter.check("login", request.getRemoteAddr());
@@ -42,6 +49,7 @@ public class AuthController {
     }
 
     @PostMapping("/auth/logout")
+    // 声明 OpenAPI 文档中的认证要求，不会代替 Spring Security 的实际拦截。
     @SecurityRequirement(name = "bearerAuth")
     @Operation(summary = "撤销当前会话，立即阻断尚未到期的JWT")
     public ApiResponse<Void> logout(@AuthenticationPrincipal Jwt jwt) {
@@ -49,6 +57,7 @@ public class AuthController {
         return ApiResponse.ok(null);
     }
 
+    // 将下面的方法映射为 GET 查询接口，不在此声明中处理数据库事务。
     @GetMapping("/me")
     @SecurityRequirement(name = "bearerAuth")
     @Operation(summary = "读取当前账户最小信息")

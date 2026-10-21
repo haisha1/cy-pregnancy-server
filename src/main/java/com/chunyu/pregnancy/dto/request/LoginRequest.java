@@ -6,6 +6,7 @@ import javax.validation.constraints.Size;
 
 /** 微信登录入参。只接收code，不允许客户端直接指定openid或本系统用户ID。 */
 public class LoginRequest {
+    // 要求文本非 null 且不能全是空白字符，用于必填文本。
     @NotBlank @Size(max = 256)
     public String code;
 

@@ -24,8 +24,10 @@ import org.springframework.security.web.SecurityFilterChain;
  * 接口使用Authorization头中的Bearer token，不使用Cookie登录，因此禁用CSRF和HTTP Session。
  * 不开放全局跨域；H5联调需要时添加明确来源白名单。小程序不需要浏览器CORS放行。
  */
+// 配置类：集中声明需要交给 Spring 管理的对象及框架行为。
 @Configuration
 public class SecurityConfig {
+  // 把方法返回的对象注册为 Spring Bean；参数中的依赖由 Spring 从容器中提供。
   @Bean
   public SecretKey jwtKey(AuthProperties properties) {
     return new SecretKeySpec(properties.getSecret().getBytes(StandardCharsets.UTF_8), "HmacSHA256");
@@ -65,7 +67,9 @@ public class SecurityConfig {
       HttpSecurity http, ObjectMapper json, SessionService sessions, Environment environment)
       throws Exception {
     http.csrf().disable().formLogin().disable().httpBasic().disable().logout().disable();
+    // STATELESS 表示不靠服务器 HttpSession 保存登录态；每次请求都带 Bearer 凭据。
     http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+    // permitAll 只是不要求用户 JWT；内部接口仍在 Controller/Service 校验独立服务间密钥。
     http.authorizeRequests()
         .antMatchers(
             org.springframework.http.HttpMethod.GET, "/api/v1/knowledge", "/api/v1/knowledge/*")
@@ -105,6 +109,7 @@ public class SecurityConfig {
               json.writeValue(response.getOutputStream(), ApiResponse.error("FORBIDDEN", "没有访问权限"));
             });
     http.oauth2ResourceServer().authenticationEntryPoint(unauthorized).jwt();
+    // 先由 Bearer 过滤器验签并建立身份，再执行数据库会话检查，不能只相信 JWT 尚未过期。
     http.addFilterAfter(
         new SessionValidityFilter(sessions, json), BearerTokenAuthenticationFilter.class);
     return http.build();

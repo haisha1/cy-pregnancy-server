@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
  * 固定一分钟窗口限流。Lua让计数和设置TTL原子完成，避免INCR成功而EXPIRE失败产生永久键。
  * 首版按连接IP限流，不直接相信客户端传来的X-Forwarded-For。
  */
+// 通用 Spring 组件：由容器创建并管理，其他类可通过构造器使用它。
 @Component
 public class LoginRateLimiter {
     private final StringRedisTemplate redis;

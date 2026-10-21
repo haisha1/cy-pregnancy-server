@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /** 如实声明能力；后续模块通过验收再打开，前端不能据此跳过服务端权限校验。 */
+// HTTP 控制器：接收请求，返回值由框架序列化为响应，通常是 JSON。
 @RestController
 public class CapabilitiesController {
   private final WechatProperties wechat;
@@ -15,10 +16,12 @@ public class CapabilitiesController {
   @org.springframework.beans.factory.annotation.Value("${CONTENT_READ_KEY:}")
   private String contentKey;
 
+  // 单一构造器由 Spring 自动注入依赖；final 字段表明这些依赖在构造后不再替换。
   public CapabilitiesController(WechatProperties wechat) {
     this.wechat = wechat;
   }
 
+  // 将下面的方法映射为 GET 查询接口，不在此声明中处理数据库事务。
   @GetMapping("/api/v1/capabilities")
   public ApiResponse<Map<String, Boolean>> capabilities() {
     Map<String, Boolean> result = new LinkedHashMap<>();

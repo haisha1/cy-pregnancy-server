@@ -25,6 +25,7 @@ public class SessionValidityFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
             throws ServletException, IOException {
+        // SecurityContextHolder 保存当前请求线程的认证信息；这里读取上游 JWT 验签后的结果。
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication instanceof JwtAuthenticationToken) {
             Jwt jwt = ((JwtAuthenticationToken) authentication).getToken();
@@ -43,6 +44,7 @@ public class SessionValidityFilter extends OncePerRequestFilter {
                 return;
             }
         }
+        // 只有校验未提前返回时才把请求交给后续过滤器，最终进入 Controller。
         chain.doFilter(request, response);
     }
 

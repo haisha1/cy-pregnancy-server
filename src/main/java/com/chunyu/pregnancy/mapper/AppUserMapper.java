@@ -8,11 +8,13 @@ import org.apache.ibatis.annotations.Select;
 
 /** MyBatis-Plus负责普通CRUD；并发创建使用MySQL唯一键和upsert，避免重复用户。 */
 public interface AppUserMapper extends BaseMapper<AppUser> {
+  // 声明插入 SQL；参数通过 MyBatis 绑定，事务由调用它的业务层控制。
   @Insert(
       "INSERT INTO app_user(app_id,subject_hash,public_uuid,account_status,cloud_data_epoch,created_at) "
           + "VALUES(#{appId},#{subjectHash},#{publicUuid},'active',1,UTC_TIMESTAMP(6)) "
           + "ON DUPLICATE KEY UPDATE id=id")
   void insertIdentity(
+      // 为 SQL 参数命名，使注解 SQL 中的 #{名称} 能找到对应方法参数。
       @Param("appId") String appId,
       @Param("subjectHash") String subjectHash,
       @Param("publicUuid") String publicUuid);
@@ -21,6 +23,7 @@ public interface AppUserMapper extends BaseMapper<AppUser> {
     insertIdentity(appId, subjectHash, java.util.UUID.randomUUID().toString());
   }
 
+  // 声明查询 SQL；#{参数} 使用参数绑定，不把外部输入直接拼成 SQL 结构。
   @Select("SELECT * FROM app_user WHERE app_id=#{appId} AND subject_hash=#{subjectHash}")
   AppUser findIdentity(@Param("appId") String appId, @Param("subjectHash") String subjectHash);
 

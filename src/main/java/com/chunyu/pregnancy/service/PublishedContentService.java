@@ -10,11 +10,13 @@ import org.springframework.web.client.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 /** 用户服务的内容只读边界。独立内部密钥、短超时、无历史正文缓存，下架时不能回退显示旧发布版本。 */
+// 业务层组件：由 Spring 管理，负责组织业务步骤；事务边界仍需由事务代码明确控制。
 @Service
 public class PublishedContentService {
   private final RestTemplate http;
   private final String base, key;
 
+  // 单一构造器由 Spring 自动注入依赖；final 字段表明这些依赖在构造后不再替换。
   public PublishedContentService(
       RestTemplateBuilder builder,
       @Value("${CONTENT_READ_URL:http://127.0.0.1:18732}") String base,

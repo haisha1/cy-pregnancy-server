@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 /** 只取openid用于本系统身份匹配；不缓存或记录code、session_key和第三方错误全文。 */
+// 通用 Spring 组件：由容器创建并管理，其他类可通过构造器使用它。
 @Component
 public class WxJavaWechatGateway implements WechatGateway {
   private final WxMaService service;
@@ -46,6 +47,7 @@ public class WxJavaWechatGateway implements WechatGateway {
     return new BizException(503, "MODERATION_UNAVAILABLE", "微信内容检查暂不可用，资料未保存，请稍后重试");
   }
 
+  // 单一构造器由 Spring 自动注入依赖；final 字段表明这些依赖在构造后不再替换。
   public WxJavaWechatGateway(WechatProperties properties) {
     this.properties = properties;
     WxMaDefaultConfigImpl config = new WxMaDefaultConfigImpl();
@@ -56,6 +58,7 @@ public class WxJavaWechatGateway implements WechatGateway {
   }
 
   @Override
+  // 这里只对接微信 SDK 并转换外部错误；账号创建和本系统会话由 AuthServiceImpl 处理。
   public String exchangeOpenId(String code) {
     if (!properties.isConfigured()) {
       throw new BizException(503, "WECHAT_NOT_CONFIGURED", "微信登录尚未配置");
